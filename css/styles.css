@@ -297,56 +297,56 @@ button:disabled {
 
 /* Estilos para botones de intensidad seleccionados */
 .btn-intensidad[data-valor="1"].seleccionado {
-    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
-    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
+    background: #28a745;
+    box-shadow: none;
 }
 
 /* Cambio a color naranja para el botón moderada seleccionado */
 .btn-intensidad[data-valor="2"].seleccionado {
-    background: linear-gradient(135deg, #fd7e14 0%, #e06c12 100%);
-    box-shadow: 0 3px 6px rgba(253, 126, 20, 0.2);
+    background: #fd7e14;
+    box-shadow: none;
 }
 
 .btn-intensidad[data-valor="3"].seleccionado {
-    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-    box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
+    background: #dc3545;
+    box-shadow: none;
 }
 
 .btn-dolor[data-valor="si"].seleccionado {
-    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
-    box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
+    background: #dc3545;
+    box-shadow: none;
 }
 
 .btn-dolor[data-valor="no"].seleccionado {
-    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
-    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
+    background: #28a745;
+    box-shadow: none;
 }
 
 /* Hover para botones seleccionados */
 .btn-dolor[data-valor="si"].seleccionado:hover:not(:disabled) {
-    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
-    box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
+    background: #c82333;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
 }
 
 .btn-dolor[data-valor="no"].seleccionado:hover:not(:disabled) {
-    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
-    box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+    background: #218838;
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
 }
 
 .btn-intensidad[data-valor="1"].seleccionado:hover:not(:disabled) {
-    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
-    box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+    background: #218838;
+    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
 }
 
 /* Hover para el botón moderada seleccionado */
 .btn-intensidad[data-valor="2"].seleccionado:hover:not(:disabled) {
-    background: linear-gradient(135deg, #e06c12 0%, #c66010 100%);
-    box-shadow: 0 5px 10px rgba(253, 126, 20, 0.3);
+    background: #e06c12;
+    box-shadow: 0 2px 4px rgba(253, 126, 20, 0.2);
 }
 
 .btn-intensidad[data-valor="3"].seleccionado:hover:not(:disabled) {
-    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
-    box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
+    background: #c82333;
+    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
 }
 
 .opciones-sintomas {
