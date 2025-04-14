@@ -782,6 +782,15 @@ window.addEventListener('load', () => {
     cargarInfoEmbarazo();
     setInterval(actualizarFechaHora, 1000);
     
+    // Preseleccionar No como respuesta a ¿Es dolorosa?
+    btnNo.click();
+    
+    // Preseleccionar Leve como intensidad
+    const btnLeve = document.querySelector('.btn-intensidad[data-valor="1"]');
+    if (btnLeve) {
+        btnLeve.click();
+    }
+    
     // Inicializar el acordeón (abrir el primer item)
     if (acordeonItems.length > 0) {
         acordeonItems[0].classList.add('active');
