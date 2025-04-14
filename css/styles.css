@@ -1,0 +1,1120 @@
+/* General Styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Nunito', 'Segoe UI', 'Roboto', sans-serif;
+}
+
+body {
+    background-color: #f0f2f5;
+    color: #333;
+    line-height: 1.6;
+    font-size: 16px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 25px 0;
+    background: linear-gradient(135deg, #ff8eb7 0%, #e83e8c 100%);
+    color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(232, 62, 140, 0.2);
+}
+
+h1 {
+    font-size: 2.5rem;
+    margin-bottom: 5px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+h2 {
+    font-size: 1.5rem;
+    margin-bottom: 15px;
+    color: #e83e8c;
+    font-weight: 600;
+    position: relative;
+    padding-bottom: 8px;
+}
+
+h2::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 3px;
+    width: 50px;
+    background: linear-gradient(90deg, #e83e8c, #ff8eb7);
+    border-radius: 2px;
+}
+
+h3 {
+    margin-bottom: 10px;
+    color: #555;
+    font-weight: 600;
+    font-size: 1.2rem;
+}
+
+/* Section Styles */
+section {
+    background-color: white;
+    padding: 25px;
+    margin-bottom: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+    border: 1px solid rgba(0, 0, 0, 0.03);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+section:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Form Elements */
+.form-group {
+    margin-bottom: 18px;
+    display: flex;
+    align-items: center;
+}
+
+label {
+    margin-right: 15px;
+    width: 150px;
+    font-weight: 500;
+    color: #555;
+}
+
+input, select {
+    padding: 10px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    width: 140px;
+    font-size: 0.95rem;
+    transition: all 0.2s ease;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+}
+
+input:focus, select:focus {
+    border-color: #e83e8c;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(232, 62, 140, 0.15);
+}
+
+button {
+    padding: 12px 20px;
+    background: linear-gradient(135deg, #e83e8c 0%, #d03177 100%);
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 500;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(232, 62, 140, 0.2);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button:hover:not(:disabled) {
+    background: linear-gradient(135deg, #d03177 0%, #b72566 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(232, 62, 140, 0.3);
+}
+
+button:active:not(:disabled) {
+    transform: translateY(0);
+    box-shadow: 0 2px 5px rgba(232, 62, 140, 0.2);
+}
+
+button:disabled {
+    background: #e0e0e0;
+    color: #a0a0a0;
+    cursor: not-allowed;
+    box-shadow: none;
+}
+
+.btn-secundario {
+    background: linear-gradient(135deg, #6c757d 0%, #5a6268 100%);
+    box-shadow: 0 3px 6px rgba(108, 117, 125, 0.2);
+}
+
+.btn-secundario:hover:not(:disabled) {
+    background: linear-gradient(135deg, #5a6268 0%, #4a5258 100%);
+    box-shadow: 0 5px 10px rgba(108, 117, 125, 0.3);
+}
+
+/* Contracción Section */
+.contraccion-tiempo {
+    margin-bottom: 20px;
+    padding: 12px 15px;
+    background-color: #f8f9fa;
+    border-radius: 10px;
+    border-left: 4px solid #e83e8c;
+}
+
+#fecha-hora-actual {
+    font-weight: 700;
+    color: #e83e8c;
+    font-size: 1.1rem;
+    margin-top: 5px;
+}
+
+.dolor-selector, .intensidad-selector, .sintomas-adicionales {
+    margin-bottom: 22px;
+    padding: 15px;
+    background-color: #f9f9f9;
+    border-radius: 10px;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.03);
+}
+
+.dolor-selector p, .intensidad-selector p, .sintomas-adicionales p {
+    font-weight: 500;
+    margin-bottom: 8px;
+    color: #555;
+}
+
+.opciones-dolor, .opciones-intensidad {
+    display: flex;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.btn-dolor, .btn-intensidad {
+    flex: 1;
+    max-width: 120px;
+}
+
+.btn-dolor.seleccionado {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
+}
+
+.btn-intensidad {
+    padding: 10px;
+    font-size: 0.9rem;
+}
+
+.btn-intensidad.seleccionado {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    box-shadow: 0 3px 6px rgba(23, 162, 184, 0.2);
+}
+
+.opciones-sintomas {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 12px;
+    margin-top: 12px;
+}
+
+.opciones-sintomas label {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    padding: 8px 12px;
+    background-color: white;
+    border-radius: 8px;
+    border: 1px solid #eee;
+    transition: all 0.2s ease;
+    cursor: pointer;
+}
+
+.opciones-sintomas label:hover {
+    border-color: #e83e8c;
+    background-color: #fff9fb;
+}
+
+.opciones-sintomas input[type="checkbox"] {
+    width: auto;
+    margin-right: 8px;
+    cursor: pointer;
+}
+
+/* Historial Section */
+.historial-contenedor {
+    margin-bottom: 20px;
+    max-height: 300px;
+    overflow-y: auto;
+    border-radius: 10px;
+    border: 1px solid #eee;
+    box-shadow: inset 0 0 5px rgba(0, 0, 0, 0.03);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+th, td {
+    padding: 12px 15px;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+th {
+    background-color: #fcf8fa;
+    font-weight: 600;
+    color: #555;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    border-bottom: 2px solid #f8d7e3;
+}
+
+tr:nth-child(even) {
+    background-color: #fcfcfc;
+}
+
+tr:hover {
+    background-color: #fff9fb;
+}
+
+.mensaje-info {
+    text-align: center;
+    padding: 25px;
+    color: #888;
+    font-style: italic;
+    background-color: #fcfcfc;
+    border-radius: 10px;
+}
+
+.resumen-estadisticas {
+    background-color: #fcf8fa;
+    padding: 18px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    border-left: 4px solid #e83e8c;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.04);
+}
+
+#estadisticas-contracciones p {
+    margin-bottom: 8px;
+    font-size: 0.95rem;
+}
+
+#estadisticas-contracciones span {
+    font-weight: 600;
+    color: #e83e8c;
+    font-size: 1.05rem;
+}
+
+/* Alerta Section */
+.mensaje-alerta {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    box-shadow: 0 4px 12px rgba(114, 28, 36, 0.15);
+    border-left: 5px solid #721c24;
+}
+
+.mensaje-alerta h2 {
+    color: #721c24;
+    margin-bottom: 15px;
+    padding-bottom: 0;
+}
+
+.mensaje-alerta h2::after {
+    display: none;
+}
+
+#mensaje-detalle-alerta {
+    margin: 18px 0;
+    text-align: left;
+    font-size: 1.05rem;
+    line-height: 1.6;
+}
+
+#mensaje-detalle-alerta ul {
+    margin: 15px 0;
+    padding-left: 20px;
+}
+
+#mensaje-detalle-alerta li {
+    margin-bottom: 8px;
+}
+
+.hospitales-cercanos {
+    text-align: center;
+    padding: 18px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+    margin-top: 20px;
+}
+
+.hospitales-cercanos h3 {
+    margin-bottom: 15px;
+    font-weight: 600;
+    color: #333;
+}
+
+#mapa-hospitales {
+    margin-top: 15px;
+    height: 300px;
+    border-radius: 10px;
+    overflow: hidden;
+    border: 1px solid #eee;
+}
+
+.hidden {
+    display: none;
+}
+
+/* Mapa y enlaces de hospitales */
+.links-mapas {
+    margin-top: 20px;
+    text-align: center;
+}
+
+.botones-mapas {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    margin-top: 12px;
+    flex-wrap: wrap;
+}
+
+.btn-mapa {
+    display: inline-flex;
+    align-items: center;
+    padding: 12px 18px;
+    background-color: white;
+    color: #444;
+    text-decoration: none;
+    border-radius: 8px;
+    border: 1px solid #e5e5e5;
+    font-size: 0.95rem;
+    font-weight: 500;
+    transition: all 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.btn-mapa i {
+    margin-right: 8px;
+    color: #e83e8c;
+}
+
+.btn-mapa:hover {
+    background-color: #f8f8f8;
+    border-color: #d0d0d0;
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.08);
+}
+
+.cargando-hospitales {
+    text-align: center;
+    padding: 30px;
+}
+
+.loader {
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 3px solid rgba(232, 62, 140, 0.2);
+    border-radius: 50%;
+    border-top-color: #e83e8c;
+    animation: spin 1s linear infinite;
+    margin-top: 15px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.error-msg {
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    padding: 18px;
+    margin-top: 15px;
+    text-align: center;
+    color: #666;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.05);
+}
+
+/* Información de Parto Section */
+.accordion {
+    margin-top: 20px;
+}
+
+.accordion-item {
+    margin-bottom: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+    transition: box-shadow 0.3s ease;
+}
+
+.accordion-item:hover {
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.accordion-header {
+    background-color: #fcf8fa;
+    padding: 15px 18px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    position: relative;
+    border-bottom: 1px solid transparent;
+    color: #444;
+}
+
+.accordion-header:hover {
+    background-color: #f8e8ef;
+}
+
+.accordion-header::after {
+    content: '+';
+    position: absolute;
+    right: 18px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 1.5rem;
+    color: #e83e8c;
+    transition: transform 0.3s ease;
+}
+
+.accordion-item.active .accordion-header {
+    background-color: #f8e8ef;
+    border-bottom-color: #f0d0de;
+}
+
+.accordion-item.active .accordion-header::after {
+    content: '−';
+    transform: translateY(-50%) rotate(0deg);
+}
+
+.accordion-content {
+    padding: 0;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease;
+    background-color: #fff;
+}
+
+.accordion-item.active .accordion-content {
+    padding: 18px;
+    max-height: 1000px;
+}
+
+.accordion-content p {
+    margin-bottom: 12px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.accordion-content strong {
+    color: #e83e8c;
+    font-weight: 600;
+}
+
+/* Info Hospitales Section */
+.info-hospitales {
+    background-color: #f0f7ff;
+    border: 1px solid #d0e3ff;
+    border-radius: 10px;
+    padding: 20px;
+    margin-top: 20px;
+    text-align: center;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.04);
+}
+
+.mensaje-accion {
+    margin-bottom: 15px;
+    font-size: 1.1rem;
+    color: #2c5282;
+    font-weight: 500;
+}
+
+.info-emergencia {
+    margin-top: 20px;
+    font-weight: 600;
+    color: #444;
+}
+
+.telefono-emergencia {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 25px;
+    margin-top: 10px;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 1.1rem;
+    box-shadow: 0 4px 10px rgba(220, 53, 69, 0.3);
+    transition: all 0.2s ease;
+}
+
+.telefono-emergencia:hover {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 15px rgba(220, 53, 69, 0.35);
+}
+
+.telefono-emergencia:active {
+    transform: translateY(0);
+}
+
+/* Cronómetro de contracciones */
+.cronometro {
+    background: linear-gradient(to bottom, #fff, #f9f0f4);
+    border-radius: 16px;
+    padding: 25px;
+    margin-bottom: 25px;
+    text-align: center;
+    border: 1px solid #f0d0e0;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+}
+
+.display-time {
+    margin-bottom: 20px;
+    position: relative;
+    display: inline-block;
+}
+
+#cronometro-display {
+    font-size: 3rem;
+    font-weight: 700;
+    color: #e83e8c;
+    font-family: 'Roboto Mono', monospace;
+    background-color: #fff;
+    padding: 20px 35px;
+    border-radius: 16px;
+    display: inline-block;
+    min-width: 200px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+    letter-spacing: 3px;
+    text-shadow: 1px 1px 0 rgba(255, 255, 255, 0.8);
+    border: 1px solid #f8d7e3;
+}
+
+.cronometro-label {
+    display: block;
+    font-size: 0.9rem;
+    color: #888;
+    margin-top: 8px;
+    font-weight: 500;
+}
+
+.cronometro-controles {
+    display: flex;
+    justify-content: space-between;
+    gap: 12px;
+    margin: 15px 0 20px;
+    flex-wrap: wrap; /* Permite que los botones se envuelvan en pantallas pequeñas */
+}
+
+.btn-cronometro {
+    flex: 1;
+    padding: 16px 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    min-width: 0; /* Permitir que se encoja si es necesario */
+    margin-bottom: 5px; /* Espacio entre botones si se envuelven */
+}
+
+.btn-cronometro i {
+    font-size: 1rem;
+    margin-right: 5px;
+}
+
+#btn-iniciar-cronometro {
+    background: linear-gradient(135deg, #2ecc71 0%, #27ae60 100%);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+#btn-iniciar-cronometro:hover:not(:disabled) {
+    background: linear-gradient(135deg, #27ae60 0%, #219653 100%);
+    box-shadow: 0 7px 20px rgba(46, 204, 113, 0.4);
+    transform: translateY(-3px);
+}
+
+#btn-iniciar-cronometro:active:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(46, 204, 113, 0.3);
+}
+
+#btn-detener-cronometro {
+    background: linear-gradient(135deg, #e74c3c 0%, #c0392b 100%);
+    box-shadow: 0 5px 15px rgba(231, 76, 60, 0.3);
+}
+
+#btn-detener-cronometro:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c0392b 0%, #a33025 100%);
+    box-shadow: 0 7px 20px rgba(231, 76, 60, 0.4);
+    transform: translateY(-3px);
+}
+
+#btn-detener-cronometro:active:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(231, 76, 60, 0.3);
+}
+
+#btn-reiniciar-cronometro {
+    background: linear-gradient(135deg, #7f8c8d 0%, #636e70 100%);
+    box-shadow: 0 5px 15px rgba(127, 140, 141, 0.3);
+}
+
+#btn-reiniciar-cronometro:hover:not(:disabled) {
+    background: linear-gradient(135deg, #636e70 0%, #4a5758 100%);
+    box-shadow: 0 7px 20px rgba(127, 140, 141, 0.4);
+    transform: translateY(-3px);
+}
+
+#btn-reiniciar-cronometro:active:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(127, 140, 141, 0.3);
+}
+
+.btn-cronometro:disabled {
+    background: linear-gradient(135deg, #cccccc 0%, #aaaaaa 100%) !important;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.8;
+    box-shadow: none !important;
+    border: 1px solid #dddddd;
+    transform: none !important;
+}
+
+#btn-iniciar-cronometro:disabled {
+    background: linear-gradient(135deg, #cccccc 0%, #aaaaaa 100%) !important;
+}
+
+#btn-detener-cronometro:disabled {
+    background: linear-gradient(135deg, #cccccc 0%, #aaaaaa 100%) !important;
+}
+
+.instruccion-cronometro {
+    font-size: 0.95rem;
+    color: #666;
+    margin: 10px 0 0;
+    background-color: #f8f9fa;
+    padding: 10px 15px;
+    border-radius: 8px;
+    display: inline-block;
+}
+
+.cronometro-activo {
+    background: linear-gradient(to bottom, #fff9fb, #fce4ed);
+    border: 1px solid #f0b8d0;
+    box-shadow: 0 8px 20px rgba(232, 62, 140, 0.1);
+    position: relative;
+}
+
+.cronometro-activo::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    right: -10px;
+    width: 22px;
+    height: 22px;
+    background-color: #e74c3c;
+    border-radius: 50%;
+    animation: blink 1s infinite;
+    box-shadow: 0 0 5px rgba(231, 76, 60, 0.5);
+}
+
+@keyframes blink {
+    0% { opacity: 1; }
+    50% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+.cronometro-activo #cronometro-display {
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        box-shadow: 0 0 0 0 rgba(232, 62, 140, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(232, 62, 140, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(232, 62, 140, 0);
+    }
+}
+
+/* Estilos para el botón de reinicio del cronómetro */
+.cronometro-acciones-secundarias {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 15px;
+}
+
+.btn-cronometro-secundario {
+    background: linear-gradient(135deg, #7f8c8d 0%, #6c7a7d 100%);
+    color: white;
+    padding: 10px 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 0.9rem;
+    font-weight: 500;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    box-shadow: 0 3px 6px rgba(108, 122, 125, 0.2);
+}
+
+.btn-cronometro-secundario i {
+    margin-right: 6px;
+}
+
+.btn-cronometro-secundario:hover:not(:disabled) {
+    background: linear-gradient(135deg, #6c7a7d 0%, #596566 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 5px 10px rgba(108, 122, 125, 0.3);
+}
+
+.btn-cronometro-secundario:active:not(:disabled) {
+    transform: translateY(-1px);
+    box-shadow: 0 3px 8px rgba(108, 122, 125, 0.2);
+}
+
+.btn-cronometro-secundario:disabled {
+    background: linear-gradient(135deg, #cccccc 0%, #aaaaaa 100%) !important;
+    color: white;
+    cursor: not-allowed;
+    opacity: 0.8;
+    box-shadow: none !important;
+    border: 1px solid #dddddd;
+    transform: none !important;
+}
+
+/* Responsive para cronómetro */
+@media (max-width: 576px) {
+    .cronometro-controles {
+        gap: 8px;
+    }
+    
+    .btn-cronometro {
+        width: 100%;
+        max-width: 100%;
+        padding: 14px 6px;
+        font-size: 0.9rem;
+    }
+    
+    .btn-cronometro i {
+        margin-right: 6px;
+        font-size: 0.9rem;
+    }
+    
+    #cronometro-display {
+        font-size: 2.2rem;
+        padding: 15px 20px;
+        min-width: 140px;
+    }
+    
+    .cronometro {
+        padding: 15px;
+    }
+    
+    .display-time {
+        margin-bottom: 15px;
+    }
+}
+
+/* Para dispositivos muy pequeños */
+@media (max-width: 360px) {
+    .cronometro-controles {
+        flex-direction: column;
+    }
+    
+    .btn-cronometro {
+        margin-bottom: 8px;
+    }
+    
+    #cronometro-display {
+        font-size: 1.8rem;
+        padding: 12px 15px;
+    }
+    
+    .instruccion-cronometro {
+        font-size: 0.85rem;
+        padding: 8px 10px;
+    }
+}
+
+/* Mejorar responsividad para el registro de contracciones */
+@media (max-width: 576px) {
+    /* Ajustes para sección de dolor */
+    .dolor-selector, .intensidad-selector, .sintomas-adicionales {
+        padding: 12px;
+        margin-bottom: 18px;
+    }
+    
+    .opciones-dolor, .opciones-intensidad {
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 10px;
+    }
+    
+    .btn-dolor, .btn-intensidad {
+        flex: 1;
+        min-width: 0;
+        padding: 12px 5px;
+        font-size: 0.9rem;
+    }
+    
+    /* Ajustes para opciones de síntomas */
+    .opciones-sintomas {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+    
+    .opciones-sintomas label {
+        padding: 12px 10px;
+        margin: 0;
+    }
+    
+    /* Ajustes para campos de formulario */
+    .form-group {
+        margin-bottom: 15px;
+    }
+    
+    /* Aumentar tamaño de botones para mejor interacción táctil */
+    button {
+        padding: 15px 18px;
+        font-size: 1rem;
+    }
+    
+    #registrar-contraccion {
+        width: 100%;
+        padding: 16px;
+        margin-top: 10px;
+    }
+    
+    /* Mejoras para la tabla de contracciones */
+    .historial-contenedor {
+        margin-bottom: 15px;
+        max-height: 350px; /* Mayor altura en móviles para scroll más suave */
+    }
+    
+    th, td {
+        padding: 12px 8px;
+        font-size: 0.85rem;
+    }
+    
+    /* Mejor visualización de hospital y controles */
+    #btn-ubicacion {
+        width: 100%;
+        padding: 15px;
+    }
+}
+
+/* Para dispositivos muy pequeños */
+@media (max-width: 360px) {
+    body {
+        font-size: 14px;
+    }
+    
+    .container {
+        padding: 10px;
+    }
+    
+    section {
+        padding: 15px;
+        margin-bottom: 15px;
+    }
+    
+    h1 {
+        font-size: 1.8rem;
+    }
+    
+    h2 {
+        font-size: 1.2rem;
+    }
+    
+    /* Simplificar contenido en pantallas muy pequeñas */
+    #fecha-hora-actual {
+        font-size: 0.95rem;
+    }
+    
+    .btn-dolor, .btn-intensidad {
+        padding: 10px 5px;
+        font-size: 0.85rem;
+    }
+    
+    .opciones-sintomas label {
+        font-size: 0.85rem;
+    }
+    
+    .instruccion-cronometro {
+        font-size: 0.8rem;
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    body {
+        font-size: 15px;
+    }
+    
+    .container {
+        padding: 15px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    h2 {
+        font-size: 1.3rem;
+    }
+    
+    section {
+        padding: 20px;
+        margin-bottom: 20px;
+    }
+    
+    button {
+        padding: 10px 18px;
+    }
+    
+    .form-group {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    label {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+    
+    input, select {
+        width: 100%;
+    }
+    
+    .opciones-dolor, .opciones-intensidad {
+        width: 100%;
+    }
+    
+    .btn-dolor, .btn-intensidad {
+        max-width: none;
+    }
+}
+
+@media (max-width: 576px) {
+    .opciones-sintomas {
+        grid-template-columns: 1fr;
+    }
+    
+    th, td {
+        padding: 10px 8px;
+        font-size: 0.85rem;
+    }
+    
+    .botones-mapas {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .btn-mapa {
+        width: 80%;
+    }
+}
+
+/* Añadir fuente desde Google Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@500;700&display=swap');
+
+/* Form Row Styles */
+.form-row {
+    display: flex;
+    gap: 15px;
+    margin-bottom: 15px;
+}
+
+.form-row .form-group {
+    flex: 1;
+}
+
+/* Media queries para responsividad de formularios */
+@media (max-width: 576px) {
+    .form-row {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .form-group label {
+        width: 100%;
+        margin-bottom: 8px;
+        margin-right: 0;
+    }
+    
+    input, select {
+        width: 100%;
+        padding: 12px;
+        font-size: 16px; /* Mejor para evitar zoom en iOS */
+    }
+    
+    #guardar-info {
+        width: 100%;
+        margin-top: 5px;
+        padding: 14px;
+    }
+}
+
+/* Touch-friendly improvements */
+@media (max-width: 768px) {
+    /* Mayor tamaño para elementos interactivos */
+    button, .btn-dolor, .btn-intensidad, .btn-cronometro, #btn-ubicacion {
+        min-height: 44px; /* Mínimo recomendado para elementos táctiles */
+    }
+    
+    /* Ajustes para formularios en táctiles */
+    input[type="checkbox"] {
+        width: 20px;
+        height: 20px;
+        margin-right: 10px;
+    }
+    
+    /* Mejorar legibilidad de tablas en pantallas pequeñas */
+    #tabla-historial {
+        font-size: 0.9rem;
+    }
+    
+    /* Permitir scroll horizontal en tabla */
+    .historial-contenedor {
+        overflow-x: auto;
+    }
+    
+    /* Ocultar columnas menos importantes en pantallas muy pequeñas */
+    @media (max-width: 400px) {
+        th:nth-child(5), td:nth-child(5) {
+            display: none;
+        }
+    }
+}

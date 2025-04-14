@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prodromo - Seguimiento de Contracciones</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>Prodromo</h1>
+            <p>Seguimiento de Contracciones</p>
+        </header>
+
+        <section id="info-embarazo">
+            <h2>Información del Embarazo</h2>
+            <div class="form-row">
+                <div class="form-group">
+                    <label for="semanas">Semanas:</label>
+                    <input type="number" id="semanas" min="1" max="42" value="38">
+                </div>
+                <div class="form-group">
+                    <label for="dias">Días:</label>
+                    <input type="number" id="dias" min="0" max="6" value="0">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="primeriza">¿Es tu primer parto?</label>
+                <select id="primeriza">
+                    <option value="si">Sí</option>
+                    <option value="no">No</option>
+                </select>
+            </div>
+            <button id="guardar-info">Guardar Información</button>
+        </section>
+
+        <section id="registro-contraccion">
+            <h2>Registrar Contracción</h2>
+            <div class="contraccion-tiempo">
+                <p>Fecha y hora actual:</p>
+                <p id="fecha-hora-actual">--/--/---- --:--:--</p>
+            </div>
+            
+            <div class="cronometro">
+                <div class="display-time">
+                    <span id="cronometro-display">00:00</span>
+                    <span class="cronometro-label">min:seg</span>
+                </div>
+                <div class="cronometro-controles">
+                    <button id="btn-iniciar-cronometro" class="btn-cronometro">
+                        <i class="fas fa-play"></i> Iniciar
+                    </button>
+                    <button id="btn-detener-cronometro" class="btn-cronometro" disabled>
+                        <i class="fas fa-stop"></i> Detener
+                    </button>
+                    <button id="btn-reiniciar-cronometro" class="btn-cronometro" disabled>
+                        <i class="fas fa-redo-alt"></i> Reiniciar
+                    </button>
+                </div>
+                <p class="instruccion-cronometro">Pulsa "Iniciar" cuando comience la contracción y "Detener" cuando finalice</p>
+            </div>
+            
+            <div class="form-group hidden" id="duracion-manual-container">
+                <label for="duracion">Duración (segundos):</label>
+                <input type="number" id="duracion" min="10" max="120" value="45">
+            </div>
+            
+            <div class="dolor-selector">
+                <p>¿Es dolorosa?</p>
+                <div class="opciones-dolor">
+                    <button id="btn-si" class="btn-dolor">Sí</button>
+                    <button id="btn-no" class="btn-dolor">No</button>
+                </div>
+            </div>
+            <div class="intensidad-selector">
+                <p>Intensidad:</p>
+                <div class="opciones-intensidad">
+                    <button class="btn-intensidad" data-valor="1">Leve</button>
+                    <button class="btn-intensidad" data-valor="2">Moderada</button>
+                    <button class="btn-intensidad" data-valor="3">Intensa</button>
+                </div>
+            </div>
+            <div class="sintomas-adicionales">
+                <p>Síntomas adicionales:</p>
+                <div class="opciones-sintomas">
+                    <label><input type="checkbox" id="tapon-mucoso"> Pérdida del tapón mucoso</label>
+                    <label><input type="checkbox" id="romper-aguas"> Ruptura de aguas</label>
+                    <label><input type="checkbox" id="sangrado"> Sangrado</label>
+                    <label><input type="checkbox" id="menos-movimientos"> Menos movimientos fetales</label>
+                </div>
+            </div>
+            <button id="registrar-contraccion" disabled>Registrar Contracción</button>
+        </section>
+
+        <section id="historial">
+            <h2>Historial de Contracciones</h2>
+            <div class="historial-contenedor">
+                <table id="tabla-historial">
+                    <thead>
+                        <tr>
+                            <th>Fecha y Hora</th>
+                            <th>Duración</th>
+                            <th>Intensidad</th>
+                            <th>Intervalo</th>
+                            <th>Síntomas</th>
+                        </tr>
+                    </thead>
+                    <tbody id="contracciones-lista">
+                        <!-- Aquí se cargarán dinámicamente las contracciones registradas -->
+                    </tbody>
+                </table>
+                <p id="no-contracciones" class="mensaje-info">No hay contracciones registradas</p>
+            </div>
+            <div class="resumen-estadisticas">
+                <h3>Resumen de la última hora</h3>
+                <div id="estadisticas-contracciones">
+                    <p>Frecuencia media: <span id="frecuencia-media">-</span></p>
+                    <p>Duración media: <span id="duracion-media">-</span> segundos</p>
+                    <p>Intensidad media: <span id="intensidad-media">-</span>/3</p>
+                </div>
+            </div>
+            <button id="borrar-historial" class="btn-secundario">Borrar Historial</button>
+        </section>
+
+        <section id="alerta" class="hidden">
+            <div class="mensaje-alerta">
+                <h2><i class="fas fa-exclamation-triangle"></i> ¡Alerta de Posible Trabajo de Parto!</h2>
+                <div id="mensaje-detalle-alerta">
+                    <!-- Aquí se cargará el detalle de la alerta -->
+                </div>
+                <p><strong>Es recomendable acudir al hospital.</strong></p>
+            </div>
+            <div class="hospitales-cercanos">
+                <h3>Hospitales Cercanos</h3>
+                <button id="btn-ubicacion">Mostrar hospitales cercanos</button>
+                <div id="mapa-hospitales" class="hidden">
+                    <!-- Aquí se cargará el mapa -->
+                </div>
+            </div>
+        </section>
+
+        <section id="informacion-parto">
+            <h2>¿Cómo Reconocer el Trabajo de Parto?</h2>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <div class="accordion-header">Características de las Contracciones de Parto</div>
+                    <div class="accordion-content">
+                        <p><strong>Regularidad e intensificación:</strong> Durante el trabajo de parto, las contracciones se vuelven regulares (cada 3-5 minutos en primerizas, cada 5-7 minutos en partos sucesivos) y aumentan en intensidad.</p>
+                        <p><strong>Duración:</strong> Inicialmente entre 30-45 segundos, llegando a 60-90 segundos en etapas avanzadas.</p>
+                        <p><strong>Sensación:</strong> Presión en la parte baja del abdomen o espalda baja, similar a calambres menstruales intensificados.</p>
+                        <p><strong>Inalterabilidad:</strong> No disminuyen con el reposo, a diferencia de las contracciones de Braxton Hicks.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">Otras Señales Importantes</div>
+                    <div class="accordion-content">
+                        <p><strong>Pérdida del tapón mucoso:</strong> Secreción espesa, levemente sanguinolenta.</p>
+                        <p><strong>Ruptura de aguas:</strong> Puede ser un chorro abundante o un flujo constante de líquido.</p>
+                        <p><strong>Disminución de movimientos fetales:</strong> Un cambio notable en la actividad del bebé requiere consulta inmediata.</p>
+                        <p><strong>Síntomas de alarma:</strong> Sangrado abundante, fiebre, dolor abdominal persistente, visión borrosa o malestar en la parte superior del abdomen.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <div class="accordion-header">¿Cuándo Ir al Hospital?</div>
+                    <div class="accordion-content">
+                        <p><strong>Para primerizas:</strong> Contracciones cada 3-5 minutos durante al menos una hora, con duración de 45-60 segundos.</p>
+                        <p><strong>Si ya has tenido hijos:</strong> Contracciones cada 5-7 minutos durante al menos una hora, con duración de 45-60 segundos.</p>
+                        <p><strong>En todos los casos:</strong> Ruptura de aguas, sangrado anormal o disminución notable de movimientos fetales son señales para acudir inmediatamente.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
