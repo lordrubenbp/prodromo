@@ -681,6 +681,85 @@ function calcularDistancia(lat1, lon1, lat2, lon2) {
     return d;
 }
 
+// Exportar historial de contracciones a CSV
+function exportarHistorial() {
+    if (contracciones.length === 0) {
+        alert('No hay contracciones registradas para exportar.');
+        return;
+    }
+
+    // Formatear los datos para CSV compatible con Excel
+    const datos = contracciones.map((c, index) => {
+        const fecha = new Date(c.fecha);
+        // Formatear fecha como dd/mm/yyyy
+        const fechaFormateada = `${fecha.getDate().toString().padStart(2, '0')}/${(fecha.getMonth() + 1).toString().padStart(2, '0')}/${fecha.getFullYear()}`;
+        // Formatear hora como hh:mm:ss
+        const horaFormateada = `${fecha.getHours().toString().padStart(2, '0')}:${fecha.getMinutes().toString().padStart(2, '0')}:${fecha.getSeconds().toString().padStart(2, '0')}`;
+        
+        let intensidadTexto = '-';
+        if (c.intensidad) {
+            switch (parseInt(c.intensidad)) {
+                case 1: intensidadTexto = 'Leve'; break;
+                case 2: intensidadTexto = 'Moderada'; break;
+                case 3: intensidadTexto = 'Intensa'; break;
+                default: intensidadTexto = c.intensidad;
+            }
+        }
+        
+        // Calcular el intervalo
+        let intervaloTexto = '-';
+        if (index < contracciones.length - 1) {
+            const fechaAnterior = new Date(contracciones[index + 1].fecha);
+            const intervalo = calcularIntervalo(fecha, fechaAnterior);
+            intervaloTexto = intervalo.toString();
+        }
+        
+        return {
+            Fecha: fechaFormateada,
+            Hora: horaFormateada,
+            Dolorosa: c.esDolorosa ? 'Sí' : 'No',
+            Intensidad: intensidadTexto,
+            Duracion: c.duracion ? `${c.duracion}` : '-',
+            Intervalo: intervaloTexto,
+            Sintomas: formatearSintomas(c.sintomas)
+        };
+    });
+
+    // Función para escapar valores con comas o comillas para CSV
+    const escaparCSV = (valor) => {
+        const str = String(valor);
+        if (str.includes(';') || str.includes('"') || str.includes('\n')) {
+            return `"${str.replace(/"/g, '""')}"`;
+        }
+        return str;
+    };
+
+    // Crear encabezados con nombres en español para Excel
+    const encabezados = ['Fecha', 'Hora', 'Dolorosa', 'Intensidad', 'Duración (segundos)', 'Intervalo (minutos)', 'Síntomas'];
+    
+    // Generar contenido CSV con valores escapados correctamente
+    const csvContent = [
+        encabezados.join(';'),
+        ...datos.map(row => Object.values(row).map(escaparCSV).join(';'))
+    ].join('\r\n'); // Usar CRLF para mejor compatibilidad con Excel
+
+    // Añadir BOM para que Excel reconozca correctamente caracteres UTF-8
+    const BOM = '\uFEFF';
+    const csvWithBOM = BOM + csvContent;
+    
+    // Crear blob y descargar
+    const blob = new Blob([csvWithBOM], { type: 'text/csv;charset=utf-8;' });
+    const url = URL.createObjectURL(blob);
+    const link = document.createElement('a');
+    link.href = url;
+    const fechaActual = new Date();
+    const nombreArchivo = `historial_contracciones_${fechaActual.getDate()}-${fechaActual.getMonth()+1}-${fechaActual.getFullYear()}.csv`;
+    link.setAttribute('download', nombreArchivo);
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+}
+
 // Manejar el acordeón de información
 function toggleAccordion(item) {
     const isActive = item.classList.contains('active');
@@ -740,6 +819,8 @@ btnRegistrarContraccion.addEventListener('click', registrarContraccion);
 btnGuardarInfo.addEventListener('click', guardarInfoEmbarazo);
 btnBorrarHistorial.addEventListener('click', borrarHistorial);
 btnUbicacion.addEventListener('click', mostrarHospitalesCercanos);
+const btnExportarHistorial = document.getElementById('exportar-historial');
+btnExportarHistorial.addEventListener('click', exportarHistorial);
 
 btnIniciarCronometro.addEventListener('click', iniciarCronometro);
 btnDetenerCronometro.addEventListener('click', detenerCronometro);
