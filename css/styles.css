@@ -187,16 +187,48 @@ button:disabled {
     display: flex;
     gap: 12px;
     margin-top: 12px;
+    width: 100%;
 }
 
 .btn-dolor, .btn-intensidad {
     flex: 1;
-    max-width: 120px;
+    max-width: none;
+    width: 100%;
 }
 
-.btn-dolor.seleccionado {
+.btn-dolor[data-valor="si"] {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
+}
+
+.btn-dolor[data-valor="si"]:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
+}
+
+.btn-dolor[data-valor="no"] {
     background: linear-gradient(135deg, #28a745 0%, #218838 100%);
     box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
+}
+
+.btn-dolor[data-valor="no"]:hover:not(:disabled) {
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+    box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+}
+
+.btn-dolor.seleccionado, .btn-intensidad.seleccionado {
+    border: 3px solid #fff;
+    box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+    transform: scale(1.05); /* Reducido para evitar superposiciones */
+    position: relative;
+    font-weight: 700;
+    z-index: 1; /* Reducido para evitar problemas de superposición */
+    text-shadow: 0 0 2px rgba(0, 0, 0, 0.2);
+}
+
+/* Eliminar los pseudo-elementos after que añadían la marca de verificación */
+.btn-dolor.seleccionado::after, .btn-intensidad.seleccionado::after {
+    display: none;
 }
 
 .btn-intensidad {
@@ -204,9 +236,34 @@ button:disabled {
     font-size: 0.9rem;
 }
 
-.btn-intensidad.seleccionado {
-    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
-    box-shadow: 0 3px 6px rgba(23, 162, 184, 0.2);
+.btn-intensidad[data-valor="1"] {
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
+}
+
+.btn-intensidad[data-valor="1"]:hover:not(:disabled) {
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+    box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+}
+
+.btn-intensidad[data-valor="2"] {
+    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
+    box-shadow: 0 3px 6px rgba(255, 193, 7, 0.2);
+}
+
+.btn-intensidad[data-valor="2"]:hover:not(:disabled) {
+    background: linear-gradient(135deg, #e0a800 0%, #d39e00 100%);
+    box-shadow: 0 5px 10px rgba(255, 193, 7, 0.3);
+}
+
+.btn-intensidad[data-valor="3"] {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
+}
+
+.btn-intensidad[data-valor="3"]:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
 }
 
 .opciones-sintomas {
@@ -306,6 +363,39 @@ tr:hover {
     color: #e83e8c;
     font-size: 1.05rem;
 }
+
+/* Botones de historial */
+.historial-botones {
+    display: flex;
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.historial-botones button {
+    flex: 1;
+}
+
+#borrar-historial {
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
+}
+
+#borrar-historial:hover:not(:disabled) {
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
+}
+
+#exportar-historial {
+    background: linear-gradient(135deg, #17a2b8 0%, #138496 100%);
+    box-shadow: 0 3px 6px rgba(23, 162, 184, 0.2);
+}
+
+#exportar-historial:hover:not(:disabled) {
+    background: linear-gradient(135deg, #138496 0%, #117a8b 100%);
+    box-shadow: 0 5px 10px rgba(23, 162, 184, 0.3);
+}
+
+/* Responsive para botones de historial */
 
 /* Alerta Section */
 .mensaje-alerta {
@@ -837,6 +927,15 @@ tr:hover {
     
     .display-time {
         margin-bottom: 15px;
+    }
+    
+    .historial-botones {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .historial-botones button {
+        width: 100%;
     }
 }
 
