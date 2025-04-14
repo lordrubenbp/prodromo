@@ -245,17 +245,18 @@ button:disabled {
     background: rgba(40, 167, 69, 0.1) !important;
 }
 
+/* Cambio a color naranja para el botón moderada */
 .btn-intensidad[data-valor="2"]:not(.seleccionado) {
-    border-color: #ffc107;
-    color: #ffc107;
+    border-color: #fd7e14;
+    color: #fd7e14;
 }
 
 .btn-intensidad[data-valor="2"]:not(.seleccionado) i {
-    color: #ffc107;
+    color: #fd7e14;
 }
 
 .btn-intensidad[data-valor="2"]:not(.seleccionado):hover {
-    background: rgba(255, 193, 7, 0.1) !important;
+    background: rgba(253, 126, 20, 0.1) !important;
 }
 
 .btn-intensidad[data-valor="3"]:not(.seleccionado) {
@@ -300,9 +301,10 @@ button:disabled {
     box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
 }
 
+/* Cambio a color naranja para el botón moderada seleccionado */
 .btn-intensidad[data-valor="2"].seleccionado {
-    background: linear-gradient(135deg, #ffc107 0%, #e0a800 100%);
-    box-shadow: 0 3px 6px rgba(255, 193, 7, 0.2);
+    background: linear-gradient(135deg, #fd7e14 0%, #e06c12 100%);
+    box-shadow: 0 3px 6px rgba(253, 126, 20, 0.2);
 }
 
 .btn-intensidad[data-valor="3"].seleccionado {
@@ -336,9 +338,10 @@ button:disabled {
     box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
 }
 
+/* Hover para el botón moderada seleccionado */
 .btn-intensidad[data-valor="2"].seleccionado:hover:not(:disabled) {
-    background: linear-gradient(135deg, #e0a800 0%, #d39e00 100%);
-    box-shadow: 0 5px 10px rgba(255, 193, 7, 0.3);
+    background: linear-gradient(135deg, #e06c12 0%, #c66010 100%);
+    box-shadow: 0 5px 10px rgba(253, 126, 20, 0.3);
 }
 
 .btn-intensidad[data-valor="3"].seleccionado:hover:not(:disabled) {
