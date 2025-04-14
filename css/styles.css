@@ -297,56 +297,56 @@ button:disabled {
 
 /* Estilos para botones de intensidad seleccionados */
 .btn-intensidad[data-valor="1"].seleccionado {
-    background: #28a745;
-    box-shadow: none;
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
 }
 
 /* Cambio a color naranja para el botón moderada seleccionado */
 .btn-intensidad[data-valor="2"].seleccionado {
-    background: #fd7e14;
-    box-shadow: none;
+    background: linear-gradient(135deg, #fd7e14 0%, #e06c12 100%);
+    box-shadow: 0 3px 6px rgba(253, 126, 20, 0.2);
 }
 
 .btn-intensidad[data-valor="3"].seleccionado {
-    background: #dc3545;
-    box-shadow: none;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
 }
 
 .btn-dolor[data-valor="si"].seleccionado {
-    background: #dc3545;
-    box-shadow: none;
+    background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+    box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
 }
 
 .btn-dolor[data-valor="no"].seleccionado {
-    background: #28a745;
-    box-shadow: none;
+    background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+    box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
 }
 
 /* Hover para botones seleccionados */
 .btn-dolor[data-valor="si"].seleccionado:hover:not(:disabled) {
-    background: #c82333;
-    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
 }
 
 .btn-dolor[data-valor="no"].seleccionado:hover:not(:disabled) {
-    background: #218838;
-    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+    box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
 }
 
 .btn-intensidad[data-valor="1"].seleccionado:hover:not(:disabled) {
-    background: #218838;
-    box-shadow: 0 2px 4px rgba(40, 167, 69, 0.2);
+    background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+    box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
 }
 
 /* Hover para el botón moderada seleccionado */
 .btn-intensidad[data-valor="2"].seleccionado:hover:not(:disabled) {
-    background: #e06c12;
-    box-shadow: 0 2px 4px rgba(253, 126, 20, 0.2);
+    background: linear-gradient(135deg, #e06c12 0%, #c66010 100%);
+    box-shadow: 0 5px 10px rgba(253, 126, 20, 0.3);
 }
 
 .btn-intensidad[data-valor="3"].seleccionado:hover:not(:disabled) {
-    background: #c82333;
-    box-shadow: 0 2px 4px rgba(220, 53, 69, 0.2);
+    background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+    box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
 }
 
 .opciones-sintomas {
@@ -1208,6 +1208,58 @@ tr:hover {
     
     .btn-dolor, .btn-intensidad {
         max-width: none;
+    }
+    
+    /* Eliminar degradados en los botones de intensidad y dolor en formato móvil */
+    .btn-intensidad[data-valor="1"].seleccionado {
+        background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+        box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
+    }
+    
+    .btn-intensidad[data-valor="2"].seleccionado {
+        background: linear-gradient(135deg, #fd7e14 0%, #e06c12 100%);
+        box-shadow: 0 3px 6px rgba(253, 126, 20, 0.2);
+    }
+    
+    .btn-intensidad[data-valor="3"].seleccionado {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
+    }
+    
+    .btn-dolor[data-valor="si"].seleccionado {
+        background: linear-gradient(135deg, #dc3545 0%, #c82333 100%);
+        box-shadow: 0 3px 6px rgba(220, 53, 69, 0.2);
+    }
+    
+    .btn-dolor[data-valor="no"].seleccionado {
+        background: linear-gradient(135deg, #28a745 0%, #218838 100%);
+        box-shadow: 0 3px 6px rgba(40, 167, 69, 0.2);
+    }
+    
+    /* Hover para botones seleccionados en móvil */
+    .btn-dolor[data-valor="si"].seleccionado:hover:not(:disabled) {
+        background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+        box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
+    }
+    
+    .btn-dolor[data-valor="no"].seleccionado:hover:not(:disabled) {
+        background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+        box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+    }
+    
+    .btn-intensidad[data-valor="1"].seleccionado:hover:not(:disabled) {
+        background: linear-gradient(135deg, #218838 0%, #1e7e34 100%);
+        box-shadow: 0 5px 10px rgba(40, 167, 69, 0.3);
+    }
+    
+    .btn-intensidad[data-valor="2"].seleccionado:hover:not(:disabled) {
+        background: linear-gradient(135deg, #e06c12 0%, #c66010 100%);
+        box-shadow: 0 5px 10px rgba(253, 126, 20, 0.3);
+    }
+    
+    .btn-intensidad[data-valor="3"].seleccionado:hover:not(:disabled) {
+        background: linear-gradient(135deg, #c82333 0%, #bd2130 100%);
+        box-shadow: 0 5px 10px rgba(220, 53, 69, 0.3);
     }
 }
 
